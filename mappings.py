@@ -52,6 +52,9 @@ def create_mappings(_):
                  scroll_encoder='display_encoder_with_device_context_button')]),
         mixer=dict(component='Mixer', volume_controls='faders',
                    pan_controls='encoders',
-                   track_bank_encoder='display_encoder_with_mixer_context_button'),
+                   track_bank_encoder='display_encoder_with_mixer_context_button',
+                   master_track_volume_control='fader_8_with_mixer_context_button',
+                   target_track_send_a_control='encoder_8_with_mixer_context_button'
+                   ),
         default_behaviour=ImmediateBehaviour())
     return mappings
