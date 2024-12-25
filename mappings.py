@@ -50,12 +50,14 @@ def create_mappings(_):
         device=dict(modes=[
             dict(component='Device', parameter_controls='continuous_controls'),
             dict(component='Device_Navigation',
-                 scroll_encoder='display_encoder_with_device_context_button')]),
+                 scroll_encoder='display_encoder_with_device_context_button'),
+            dict(component='Mixer',
+                 target_track_volume_control='fader_8',
+                 )]),
         mixer=dict(component='Mixer', volume_controls='faders',
                    pan_controls='encoders',
                    track_bank_encoder='display_encoder_with_mixer_context_button',
-                   master_track_volume_control='fader_8_with_mixer_context_button',
-                   target_track_send_a_control='encoder_8_with_mixer_context_button'
+                   master_track_volume_control='fader_8',
                    ),
         default_behaviour=ImmediateBehaviour())
     return mappings
