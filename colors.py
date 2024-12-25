@@ -12,15 +12,15 @@ def create_color(r, g, b):
 
 class Rgb:
     OFF = FallbackColor(create_color(0, 0, 0), BasicColors.OFF)
-    WHITE_HALF = create_color(32, 32, 32)
+    WHITE_HALF = create_color(64, 64, 64)
     WHITE = FallbackColor(create_color(127, 127, 127), BasicColors.ON)
     RED = create_color(127, 0, 0)
-    RED_HALF = create_color(32, 0, 0)
-    RED_LOW = create_color(16, 0, 0)
+    RED_HALF = create_color(64, 0, 0)
+    RED_LOW = create_color(32, 0, 0)
     GREEN = create_color(0, 127, 0)
-    GREEN_HALF = create_color(0, 32, 0)
+    GREEN_HALF = create_color(0, 64, 0)
     YELLOW = create_color(127, 72, 0)
-    YELLOW_HALF = create_color(32, 24, 0)
+    YELLOW_HALF = create_color(64, 48, 0)
 
 class Skin:
 
