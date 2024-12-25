@@ -32,8 +32,8 @@ def create_mappings(_):
     mappings['Mixer'] = dict(target_track_mute_button='context_button_4',
                              target_track_solo_button='context_button_5',
                              target_track_arm_button='context_button_6',
-                             target_track_volume_control='fader_8',
-                             target_track_pan_control='encoder_8')
+                             #prehear_volume_control='encoder_8_with_context_button_2',
+                             )
 
     mappings['Session'] = dict(clip_launch_buttons='pads')
 
@@ -53,11 +53,13 @@ def create_mappings(_):
                  scroll_encoder='display_encoder_with_device_context_button'),
             dict(component='Mixer',
                  target_track_volume_control='fader_8',
+                 target_track_send_a_control='encoder_8',
                  )]),
         mixer=dict(component='Mixer', volume_controls='faders',
                    pan_controls='encoders',
                    track_bank_encoder='display_encoder_with_mixer_context_button',
                    master_track_volume_control='fader_8',
+                   target_track_pan_control='encoder_8',
                    ),
         default_behaviour=ImmediateBehaviour())
     return mappings
