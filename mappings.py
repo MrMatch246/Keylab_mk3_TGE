@@ -24,8 +24,9 @@ def create_mappings(_):
 
     mappings['Clip_Actions'] = dict(quantize_button='quantize_button')
 
-    mappings['View_Control'] = dict(prev_scene_button='context_button_2',
-                                    next_scene_button='context_button_3',
+    mappings['View_Control'] = dict(#prev_scene_button='context_button_2',
+                                    #next_scene_button='context_button_3',
+                                    scene_encoder='display_encoder_with_context_button_2',
                                     track_encoder='display_encoder')
 
     mappings['Mixer'] = dict(target_track_mute_button='context_button_4',
