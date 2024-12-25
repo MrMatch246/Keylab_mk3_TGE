@@ -21,3 +21,4 @@ class SceneLaunchComponent(Component, Renderable):
     @launch_button.pressed_delayed
     def launch_button(self, _):
         self.song.stop_all_clips()
+        self.song.back_to_arranger = not self.song.back_to_arranger
