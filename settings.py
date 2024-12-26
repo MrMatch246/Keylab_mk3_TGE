@@ -36,7 +36,7 @@ ENABLE_PLAY_PAUSE_BUTTON = True
 
 ############## PYTHON BASED FEATURES ##############
 # If you can run python3 scripts on your system set this to True
-I_HAVE_PYTHON_3 = True
+I_HAVE_PYTHON_3 = False
 
 # If you are a Mac user
 IS_MAC = False
