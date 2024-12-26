@@ -60,7 +60,8 @@ Watch this repo to get notifications about updates!
 # Install:
 
 - Download the repo as zip  
-  ![image](https://github.com/MrMatch246/KeyLab_Essential_mk3_TGE/assets/50702646/10d56113-c67d-4d25-a660-16fdd33b7992)
+  ![image](https://github.com/user-attachments/assets/1baef411-cb04-4e2d-9d9a-b075afca6a8c)
+
 
 
 - Go into Live
@@ -82,17 +83,17 @@ Watch this repo to get notifications about updates!
     - Just unzip it in the the "Remote Scripts" folder
 - To check if everything went right, open "User Library/Remote Scripts/KeyLab_mk3_TGE/settings.py"
 - It should look like this:  
-  ![image](https://github.com/MrMatch246/KeyLab_Essential_mk3_TGE/assets/50702646/eba80adf-e9c6-4da0-8ca7-49cc82a475e7)
+  ![image](https://github.com/user-attachments/assets/e3133b0f-681e-4803-bc3b-7960e26111bf)
+
 
 
 
 
 - Start Live and select it
 
-  ![image](https://github.com/MrMatch246/KeyLab_Essential_mk3_TGE/assets/50702646/a3a87514-af62-4248-8688-7fcafd98aeb9)
+  #TODO
 
 - ### Device settings should look like this:
 
-  ![image](https://github.com/MrMatch246/KeyLab_Essential_mk3_TGE/assets/50702646/187ef3db-4d02-4608-b62f-8691b9d2b66a)  
   #TODO
 
