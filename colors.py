@@ -7,10 +7,40 @@ from ableton.v3.control_surface import BasicColors
 from ableton.v3.control_surface.elements import FallbackColor, create_rgb_color
 from ableton.v3.live import liveobj_color_to_midi_rgb_values
 
+
+def create_blinking_color(r, g, b):
+    return create_rgb_color((r, g, b, 2))
+
 def create_color(r, g, b):
     return create_rgb_color((r, g, b, 0))
 
+def create_dynamic_color_bright(x):
+    return create_color(*liveobj_color_to_midi_rgb_values(x))
+
+def create_dynamic_color_dark(x):
+    color = liveobj_color_to_midi_rgb_values(x)
+    return create_color(*(int(c / 8) for c in color))
+
 class Rgb:
+    #####TAKEN FROM ESSENTIAL#####
+    #TODO FIX
+    RED_BLINK = create_blinking_color(127, 0, 0)
+    GREEN_HALF_BLINK = create_blinking_color(0, 32, 0)
+    GREEN_BLINK = create_blinking_color(0, 127, 0)
+    BLUE = create_color(0, 0, 127)
+    BLUE_HALF = create_color(0, 0, 32)
+    BLUE_THIRD = create_color(0, 0, 16)
+    OCEAN = create_color(20, 80, 127)
+    OCEAN_HALF = create_color(10, 40, 64)
+    AMBER = create_color(127, 50, 0)
+    AMBER_HALF = create_color(20, 5, 0)
+    YELLOW_LOW = create_color(8, 6, 0)
+    PURPLE = create_color(64, 0, 127)
+    PURPLE_HALF = create_color(16, 0, 32)
+    PURPLE_HALF_BLINK = create_blinking_color(16, 0, 32)
+
+
+    #####ACTUALL#####
     OFF = FallbackColor(create_color(0, 0, 0), BasicColors.OFF)
     WHITE_HALF = create_color(64, 64, 64)
     WHITE = FallbackColor(create_color(127, 127, 127), BasicColors.ON)
@@ -69,3 +99,33 @@ class Skin:
         ClipPlaying = Rgb.GREEN
         ClipTriggeredRecord = Rgb.RED_HALF
         ClipRecording = Rgb.RED
+
+    class Mixer:
+        pass
+        #ArmOn = Rgb.RED
+        #ArmOff = Rgb.RED_LOW
+        #NoTrack = Rgb.OFF
+        #TrackSelected = Rgb.WHITE
+        #SoloOn = Rgb.BLUE
+        #SoloOff = Rgb.BLUE_THIRD
+        #MuteOn = Rgb.YELLOW
+        #MuteOff = Rgb.YELLOW_LOW
+        Selected = create_dynamic_color_bright
+        NotSelected = create_dynamic_color_dark
+        #SoloButton = Rgb.BLUE
+        #MuteButton = Rgb.YELLOW
+
+    class PadControlModes:
+        Mixer_Mute = Rgb.YELLOW
+        Mixer_Solo = Rgb.BLUE
+        Mixer_Arm = Rgb.RED
+
+        class Mixer:
+            ArmOn = Rgb.RED
+            ArmOff = Rgb.RED_LOW
+            NoTrack = Rgb.OFF
+            TrackSelected = Rgb.WHITE
+            SoloOn = Rgb.BLUE
+            SoloOff = Rgb.BLUE_THIRD
+            MuteOn = Rgb.YELLOW
+            MuteOff = Rgb.YELLOW_LOW
