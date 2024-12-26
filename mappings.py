@@ -24,15 +24,15 @@ def create_mappings(_):
 
     mappings['Clip_Actions'] = dict(quantize_button='quantize_button')
 
-    mappings['View_Control'] = dict(#prev_scene_button='context_button_2',
+    mappings['View_Control'] = dict(#prev_scene_button='shift_context_button',
                                     #next_scene_button='context_button_3',
-                                    scene_encoder='display_encoder_with_context_button_2',
+                                    scene_encoder='display_encoder_with_shift_context_button',
                                     track_encoder='display_encoder')
 
     mappings['Mixer'] = dict(target_track_mute_button='context_button_4',
                              target_track_solo_button='context_button_5',
                              target_track_arm_button='context_button_6',
-                             #prehear_volume_control='encoder_8_with_context_button_2',
+                             #prehear_volume_control='encoder_8_with_shift_context_button',
                              )
 
     mappings['Session'] = dict(clip_launch_buttons='pads')
