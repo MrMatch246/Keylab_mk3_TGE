@@ -48,8 +48,11 @@ Watch this repo to get notifications about updates!
 
 ### PADS
 # Todo not yet done or decided upon
-### DEVICES
-    # Nothing there yet
+### DEVICE MODE
+- DEVICE + DISPLAY ENCODER changes selected device
+
+### MIXER MODE
+- MIXER + DISPLAY ENCODER changes track banks for faders and knobs
 
 ### CURRENT TRACK CONTROLS
 - SHIFT + SOLO / ARM does what you would expect from CTRL + SOLO / ARM

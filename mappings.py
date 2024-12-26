@@ -5,7 +5,7 @@
 
 from ableton.v3.control_surface.mode import ImmediateBehaviour
 from ableton.v3.control_surface.mode.behaviour import ToggleBehaviour
-
+from .settings import *
 from Keylab_mk3_TGE.settings import PAD_CONTROL_MODES_MIXER
 
 
@@ -36,6 +36,9 @@ def create_mappings(_):
                              shift_button='shift_context_button',
                              #prehear_volume_control='encoder_8_with_shift_context_button',
                              )
+
+    if PY_UPDATE_FILESYSTEM:
+        mappings['Mixer']['update_filesystem_button'] = 'loop_button_with_shift_context_button'
 
 
 

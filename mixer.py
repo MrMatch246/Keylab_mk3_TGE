@@ -7,6 +7,9 @@ from ableton.v3.base import find_if, listenable_property, nop
 from ableton.v3.control_surface.components import MixerComponent as MixerComponentBase
 from ableton.v3.control_surface.components import SessionNavigationComponent as SessionNavigationComponentBase
 from future.moves.itertools import zip_longest
+from ableton.v3.control_surface.controls import ButtonControl
+from .settings import *
+from .PythonBridge import dispatch_hotkey
 from ableton.v3.control_surface.components import SessionRingComponent
 from ableton.v3.live import liveobj_valid, simple_track_name
 
@@ -34,7 +37,7 @@ class MixerSessionRingComponent(SessionRingComponent):
         self.notify(self.notifications.controlled_range, '', self.controlled_range)
 
 class MixerComponent(MixerComponentBase):
-    pass
+    update_filesystem_button = ButtonControl()
 
     def __init__(self, *a, **k):
         self._session_ring = MixerSessionRingComponent()
@@ -78,4 +81,12 @@ class MixerComponent(MixerComponentBase):
         for strip in self._channel_strips:
             strip.shift_button.set_control_element(button)
 
+
+    def set_update_filesystem_button(self, button):
+        self.update_filesystem_button.set_control_element(button)
+
+    @update_filesystem_button.pressed
+    def update_filesystem_button(self, _):
+        if PY_UPDATE_FILESYSTEM and PY_UPDATE_FILESYSTEM_PATH:
+            dispatch_hotkey(f";UPDATE_FILESYSTEM;{PY_UPDATE_FILESYSTEM_PATH};")
 

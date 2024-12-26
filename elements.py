@@ -33,6 +33,7 @@ class Elements(ElementsBase):
         self.add_button(22, 'Record_Button')
         self.add_button(23, 'Tap_Button')
         self.add_button(24, 'Loop_Button')
+        self.add_modified_control(control=self.loop_button, modifier=self.shift_context_button,name='Loop_Button_With_Shift_Context_Button')
         self.add_button(25, 'Rewind_Button')
         self.add_button(26, 'Fastforward_Button')
         self.add_button(27, 'Metronome_Button')
