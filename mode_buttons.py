@@ -11,6 +11,6 @@ class ModeButtonsComponent(Component, Renderable):
     pass
     device_button = ButtonControl()
     mixer_button = ButtonControl()
-
+    pad_button = ButtonControl()
     def __init__(self, *a, **k):
         super().__init__(*a, name='Mode_Buttons', **k)

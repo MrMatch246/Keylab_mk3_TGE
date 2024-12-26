@@ -41,12 +41,6 @@ class SceneLaunchComponent(Component, Renderable):
             self.focus_anything_but_arranger()
 
     def focus_anything_but_arranger(self):
-        for view in self.application.view.available_main_views():
-            if view != 'Arranger' and view != 'Session':
-                if self.application.view.is_view_visible(view):
-                    self.application.view.focus_view(view)
-                    return
-
         if self.application.view.is_view_visible('Detail'):
             self.application.view.focus_view(self.visible_detail_view())
         elif SHOW_VIEW_ON_SCROLL:
@@ -62,3 +56,4 @@ class SceneLaunchComponent(Component, Renderable):
 
     def is_arranger_visible(self):
         return self.application.view.is_view_visible('Arranger')
+

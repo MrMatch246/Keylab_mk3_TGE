@@ -161,7 +161,7 @@ def create_root_view() -> view.View[Optional[Content]]:
                 create_mode_button_content(state, 'device'),
                 create_mode_button_content(state, 'mixer'),
                 create_modifier_button_content(state, 'SHIFT'),
-                create_modifier_button_content(state, 'CTRL'),
+                create_modifier_button_content(state, 'PAD'),
                 #*create_navigation_button_content()
             )
         )

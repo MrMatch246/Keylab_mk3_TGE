@@ -25,7 +25,7 @@ class Elements(ElementsBase):
         self.add_modifier_button(45, 'Device_Context_Button')
         self.add_modifier_button(46, 'Mixer_Context_Button')
         self.add_modifier_button(47, 'Shift_Context_Button')
-        self.add_modifier_button(48, 'Context_Button_3')
+        self.add_modifier_button(48, 'Pad_Context_Button')
         for i in range(4, 8):
             self.add_button(45 + i, 'Context_Button_{}'.format(i))
         self.add_button(20, 'Stop_Button')
@@ -44,11 +44,19 @@ class Elements(ElementsBase):
         self.add_button(117, 'Display_Encoder_Button')
 
         self.add_matrix(create_matrix_identifiers(0, 12, width=4), 'Pads', element_factory=create_rgb_pad, channels=9)
+        #self.add_matrix(create_matrix_identifiers(0,4, width=4), 'Pads_Row_1', element_factory=create_rgb_pad, channels=9)
+        #self.add_matrix(create_matrix_identifiers(4,8, width=4), 'Pads_Row_2', element_factory=create_rgb_pad, channels=9)
+        #self.add_matrix(create_matrix_identifiers(8,12, width=4), 'Pads_Row_3', element_factory=create_rgb_pad, channels=9)
+        self.add_submatrix(self.pads, 'pads_row_1', rows=(0,1))
+        self.add_submatrix(self.pads, 'pads_row_2', rows=(1, 2))
+        self.add_submatrix(self.pads, 'pads_row_3', rows=(2, 3))
+
+
         self.add_encoder(104, 'Encoder_8', map_mode=MapMode.LinearBinaryOffset)
         #self.add_modified_control(control=self.encoder_8, modifier=self.mixer_context_button,name='Encoder_8_With_Mixer_Context_Button')
         #self.add_modified_control(control=self.encoder_8, modifier=self.device_context_button,name='Encoder_8_With_Device_Context_Button')
-        self.add_modified_control(control=self.encoder_8, modifier=self.shift_context_button,name='Encoder_8_With_Shift_Context_Button')
-        self.add_modified_control(control=self.encoder_8, modifier=self.context_button_3,name='Encoder_8_With_Context_Button_3')
+        #self.add_modified_control(control=self.encoder_8, modifier=self.shift_context_button,name='Encoder_8_With_Shift_Context_Button')
+        #self.add_modified_control(control=self.encoder_8, modifier=self.pad_context_button,name='Encoder_8_With_Pad_Context_Button')
         self.add_encoder(113, 'Fader_8')
         self.add_modified_control(control=self.fader_8, modifier=self.mixer_context_button,name='Fader_8_With_Mixer_Context_Button')
         self.add_modified_control(control=self.fader_8, modifier=self.device_context_button ,name='Fader_8_With_Device_Context_Button')
