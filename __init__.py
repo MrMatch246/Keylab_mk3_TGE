@@ -16,6 +16,7 @@ from .mode_buttons import ModeButtonsComponent
 from .scene_launch import SceneLaunchComponent
 
 from .transport import TransportComponent
+from .view_control import ViewControlComponent
 from .PythonBridge import KeystrokeProxie, setup_requirements, start_server
 from .settings import I_HAVE_PYTHON_3
 
@@ -44,7 +45,8 @@ class Specification(ControlSurfaceSpecification):
                      'Mixer': MixerComponent,
                      'Mode_Buttons': ModeButtonsComponent,
                      'Transport': TransportComponent,
-                     'Scene_Launch': SceneLaunchComponent}
+                     'Scene_Launch': SceneLaunchComponent,
+                     'View_Control': ViewControlComponent}
     display_specification = display_specification
 
 

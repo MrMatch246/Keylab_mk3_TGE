@@ -7,7 +7,6 @@ import sys
 from ableton.v3.control_surface import Component
 from ableton.v3.control_surface.controls import ButtonControl
 from ableton.v3.control_surface.display import Renderable
-from .settings import *
 scroll_count = 0
 class SceneLaunchComponent(Component, Renderable):
     pass
@@ -26,34 +25,4 @@ class SceneLaunchComponent(Component, Renderable):
     def launch_button(self, _):
         self.song.stop_all_clips()
         self.song.back_to_arranger = not self.song.back_to_arranger
-
-    def __on_selected_track_changed(self):
-        #global scroll_count
-        #if self.is_arranger_visible():
-        #    scroll_count += 1
-        #    if scroll_count % 3 != 0:
-        #        self.focus_anything_but_arranger()
-        #    else:
-        #        self.application.view.focus_view("Arranger")
-        #        scroll_count = 0
-        #return
-        if self.is_arranger_visible():
-            self.focus_anything_but_arranger()
-
-    def focus_anything_but_arranger(self):
-        if self.application.view.is_view_visible('Detail'):
-            self.application.view.focus_view(self.visible_detail_view())
-        elif SHOW_VIEW_ON_SCROLL:
-            self.application.view.show_view(SHOW_VIEW_ON_SCROLL)
-
-
-    def visible_detail_view(self):
-        if self.application.view.is_view_visible('Detail/DeviceChain'):
-            return "Detail/DeviceChain"
-        elif self.application.view.is_view_visible('Detail/Clip'):
-            return "Detail/Clip"
-
-
-    def is_arranger_visible(self):
-        return self.application.view.is_view_visible('Arranger')
 
