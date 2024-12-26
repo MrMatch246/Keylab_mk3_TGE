@@ -15,11 +15,17 @@ from .mixer import MixerComponent
 from .mode_buttons import ModeButtonsComponent
 from .scene_launch import SceneLaunchComponent
 
+from .transport import TransportComponent
+from .PythonBridge import KeystrokeProxie, setup_requirements, start_server
+from .settings import I_HAVE_PYTHON_3
+
+
 def get_capabilities():
     return {CONTROLLER_ID_KEY: controller_id(vendor_id=7285, product_ids=[590, 654, 718], model_name=['KeyLab 49 mk3', 'KeyLab 61 mk3', 'KeyLab 88 mk3']), PORTS_KEY: [inport(props=[NOTES_CC]), inport(props=[NOTES_CC, SCRIPT]), outport(props=[NOTES_CC]), outport(props=[NOTES_CC, SCRIPT])], AUTO_LOAD_KEY: True}
 
 def create_instance(c_instance):
     return KeyLab_mk3_TGE(specification=Specification, c_instance=c_instance)
+
 
 class Specification(ControlSurfaceSpecification):
     elements_type = Elements
@@ -34,11 +40,26 @@ class Specification(ControlSurfaceSpecification):
     hello_messages = (CONNECTION_MESSAGE,)
     goodbye_messages = (DISCONNECTION_MESSAGE,)
     parameter_bank_size = 16
-    component_map = {'Active_Parameter': ActiveParameterComponent, 'Mixer': MixerComponent, 'Mode_Buttons': ModeButtonsComponent, 'Scene_Launch': SceneLaunchComponent}
+    component_map = {'Active_Parameter': ActiveParameterComponent,
+                     'Mixer': MixerComponent,
+                     'Mode_Buttons': ModeButtonsComponent,
+                     'Transport': TransportComponent,
+                     'Scene_Launch': SceneLaunchComponent}
     display_specification = display_specification
+
 
 class KeyLab_mk3_TGE(ControlSurface):
 
     def __init__(self, *a, **k):
         super().__init__(*a, **k)
         self.set_can_auto_arm(True)
+
+    def setup(self):
+        super().setup()
+        if I_HAVE_PYTHON_3:
+            setup_requirements()
+            start_server()
+
+    def __del__(self):
+        if I_HAVE_PYTHON_3:
+            KeystrokeProxie().shutdown()
