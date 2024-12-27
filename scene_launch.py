@@ -14,8 +14,7 @@ class SceneLaunchComponent(Component, Renderable):
 
     def __init__(self, *a, **k):
         super().__init__(*a, name='Scene_Launch', **k)
-        self.song.view.add_selected_track_listener(
-            self.__on_selected_track_changed)
+
 
     @launch_button.released_immediately
     def launch_button(self, _):
