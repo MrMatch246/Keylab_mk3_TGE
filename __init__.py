@@ -19,7 +19,7 @@ from .transport import TransportComponent
 from .view_control import ViewControlComponent
 from .target_track import TargetTrackComponent
 from .PythonBridge import KeystrokeProxie, setup_requirements, start_server
-from .settings import I_HAVE_PYTHON_3
+from .settings import I_HAVE_PYTHON_3, AUTO_ARM_SELECTED_TRACK
 
 
 def get_capabilities():
@@ -36,7 +36,7 @@ class Specification(ControlSurfaceSpecification):
     num_scenes = 3
     link_session_ring_to_track_selection = True
     link_session_ring_to_scene_selection = True
-    include_auto_arming = True
+    include_auto_arming = AUTO_ARM_SELECTED_TRACK
     target_track_component_type = TargetTrackComponent
     identity_response_id_bytes = (0, 32, 107, 2, 0, 10)
     create_mappings_function = create_mappings

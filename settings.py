@@ -24,6 +24,12 @@ REWIND_FORWARD_SPEED = 4
 # and start from song marker on longer press
 ENABLE_PLAY_PAUSE_BUTTON = True
 
+# Auto Arm Selected Track
+# Set this to True if you want the selected track to be armed automatically
+# when you select it.
+AUTO_ARM_SELECTED_TRACK = False
+
+
 
 ############## PYTHON BASED FEATURES ##############
 # If you can run python3 scripts on your system set this to True
